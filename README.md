@@ -53,8 +53,9 @@ cargo tauri build --bundles dmg
 
 项目已提供 Windows x64 的 NSIS 安装器和便携版：
 
-- `installer/dist/LocalRun_0.1.0_x64-setup.exe`
-- `installer/dist/LocalRun_0.1.0_windows-x64_portable.zip`
+- [下载 Windows 安装器（NSIS .exe）](installer/dist/LocalRun_0.1.0_x64-setup.exe)
+- [下载 Windows 便携版（.zip）](installer/dist/LocalRun_0.1.0_windows-x64_portable.zip)
+- [SHA-256 校验值](installer/dist/SHA256SUMS.txt)
 
 该安装器由 macOS 交叉编译链路生成，**尚未在 Windows 实机运行验证，也未签名**；Windows SmartScreen 可能提示未知发布者。构建和校验细节见 [WINDOWS_CROSSBUILD_REPORT.md](WINDOWS_CROSSBUILD_REPORT.md)，Windows 本机/CI 构建方式见 [WINDOWS_BUILD.md](WINDOWS_BUILD.md)。
 
