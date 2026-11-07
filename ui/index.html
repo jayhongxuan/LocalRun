@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LocalRun</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="app">
+  <div class="app-body">
+  <aside class="sidebar">
+    <div class="brand"><span class="logo">L</span></div>
+    <nav class="nav">
+      <button class="nav-item on" data-page="overview"><span class="nav-ico">🏠</span><span class="nav-txt">概览</span></button>
+      <button class="nav-item" data-page="models"><span class="nav-ico">📦</span><span class="nav-txt">模型</span></button>
+      <button class="nav-item" data-page="run"><span class="nav-ico">▶</span><span class="nav-txt">运行</span></button>
+      <button class="nav-item" data-page="chat"><span class="nav-ico">💬</span><span class="nav-txt">对话</span></button>
+      <button class="nav-item" data-page="agent"><span class="nav-ico">⚡</span><span class="nav-txt">Agent</span></button>
+      <button class="nav-item" data-page="image"><span class="nav-ico">🎨</span><span class="nav-txt">画图</span></button>
+      <button class="nav-item" data-page="video"><span class="nav-ico">🎬</span><span class="nav-txt">视频</span></button>
+      <button class="nav-item" data-page="settings"><span class="nav-ico">⚙</span><span class="nav-txt">设置</span></button>
+    </nav>
+    <div class="side-foot muted">v0.1.0 · 大山</div>
+  </aside>
+  <aside class="chatlist" id="chatlist">
+    <button class="btn primary new-chat" data-action="new-chat">+ 新对话</button>
+    <div class="clist" id="clist"></div>
+  </aside>
+  <main class="main" id="main"></main>
+  </div>
+  <footer class="statusbar" id="statusbar">
+    <span id="st-net">网络检测中…</span>
+    <span class="spacer"></span>
+    <span id="st-engine">推理引擎：未安装</span>
+  </footer>
+</div>
+<div class="drop-overlay" id="dropOverlay" hidden>松开以添加附件</div>
+<script src="media.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

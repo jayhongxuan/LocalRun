@@ -1,0 +1,19 @@
+# Rust/Tauri build output
+target/
+**/target/
+target2*/
+
+# Local build payload (recreated by installer/build-windows-on-macos.sh)
+installer/payload/
+
+# Local models and generated media
+models/
+*.gguf
+*.safetensors
+*.ckpt
+media/output/
+*.part
+
+# Test and OS files
+.DS_Store
+*.log

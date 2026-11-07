@@ -1,0 +1,36 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "LocalRun",
+  "version": "0.1.0",
+  "identifier": "com.localrun.app",
+  "build": {
+    "frontendDist": "../ui"
+  },
+  "app": {
+    "windows": [
+      {
+        "label": "main",
+        "title": "LocalRun",
+        "width": 1460,
+        "height": 920,
+        "minWidth": 1000,
+        "minHeight": 640,
+        "center": true,
+        "resizable": true
+      }
+    ],
+    "security": {
+      "csp": null
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": ["app", "dmg"],
+    "category": "Utility",
+    "publisher": "大山",
+    "copyright": "Copyright © 2026 大山 (Dashan). All rights reserved.",
+    "shortDescription": "LocalRun - 本地大模型管理器",
+    "longDescription": "LocalRun 本地大模型管理器。作者：大山。",
+    "icon": ["icons/icon.icns", "icons/icon.ico", "icons/icon.png"]
+  }
+}

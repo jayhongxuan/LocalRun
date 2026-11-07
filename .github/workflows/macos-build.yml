@@ -1,0 +1,52 @@
+# LocalRun macOS 自动打包（零 npm，纯 cargo + tauri-cli）
+# 触发方式：
+#   1) 手动：GitHub 仓库 Actions 页 → Run workflow
+#   2) 打 tag：git tag v0.1.0 && git push origin v0.1.0
+# 产物：LocalRun.app + LocalRun.dmg（见 Actions 页面 Artifacts，或 Release 附件）
+
+name: build-macos
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  build-macos:
+    runs-on: macos-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Rust (stable)
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Cache Cargo
+        uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: src-tauri
+
+      - name: Install tauri-cli v2
+        run: cargo install tauri-cli --version "^2" --locked
+
+      - name: Build .app + .dmg (release)
+        working-directory: src-tauri
+        run: cargo tauri build --bundles dmg
+
+      - name: Upload .app + .dmg
+        uses: actions/upload-artifact@v4
+        with:
+          name: LocalRun-macOS
+          path: |
+            src-tauri/target/release/bundle/macos/*.app
+            src-tauri/target/release/bundle/dmg/*.dmg
+          if-no-files-found: error
+
+      # 打 tag 时顺带发布 Release（需要仓库 Settings → Actions → Workflow permissions 允许）
+      - name: Publish Release (tag only)
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            src-tauri/target/release/bundle/dmg/*.dmg

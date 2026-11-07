@@ -1,0 +1,2 @@
+e329c0f569edab2f68bb8135efd0a04865602fb4d887d49be68355f6273e7174  LocalRun_0.1.0_x64-setup.exe
+43b26c083ec4a5fe6760d0fff250b7fcb4606dfe78b519a8a398db9de38aee29  LocalRun_0.1.0_windows-x64_portable.zip
